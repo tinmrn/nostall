@@ -71,7 +71,7 @@ func expect(t *testing.T, args []string, p expectParams) {
 		assert.Regexpf(t, p.StdoutMatch, stdOut, `StdoutMatch of %v - exit code %d, stdout %q, stderr %q`, args, exitCode, stdOut, stdErr)
 	}
 	if p.StderrMatch != nil {
-		assert.Regexpf(t, p.StderrMatch, stdErr, `stderrContains of %v - exit code %d, stdout %q, stderr %q`, args, exitCode, stdOut, stdErr)
+		assert.Regexpf(t, p.StderrMatch, stdErr, `StderrMatch of %v - exit code %d, stdout %q, stderr %q`, args, exitCode, stdOut, stdErr)
 	}
 }
 
