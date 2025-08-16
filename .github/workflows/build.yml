@@ -6,6 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: ./build.sh
+      - run: ./test.sh
       - if: ${{ github.ref_type == 'tag' }}
         run: gh release create ${{github.ref_name}} ./.bin/*
         env:
