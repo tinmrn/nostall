@@ -4,6 +4,9 @@ Run a command and kill+restart it if its output stalls for a configurable amount
 ## why
 Because I need to rsync a couple of TB of data and rsync keeps stalling, ignoring its `--timeout` flag.
 
+## install
+`wget -O /usr/local/bin/nostall https://github.com/tinmrn/nostall/releases/latest/download/nostall && chmod +x /usr/local/bin/nostall`
+
 ## usage
 
 ```
