@@ -35,6 +35,12 @@ func run() error {
 
 	fs := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 
+	fs.Usage = func() {
+		_, _ = fmt.Fprintln(fs.Output(), "Usage: nostall [params] cmd [args...]")
+		_, _ = fmt.Fprintln(fs.Output())
+		fs.PrintDefaults()
+	}
+
 	fs.DurationVar(&stallTime, `wait`, 1*time.Minute, `The duration of stalled output after which to restart the program.`)
 	fs.DurationVar(&waitRestart, `wait-retry`, 10*time.Second, `The time to wait before restarting the program if it stalls.`)
 	fs.IntVar(&maxTries, `max-tries`, 0, `Max number of tries`)
