@@ -15,7 +15,7 @@ import (
 
 func TestSuccess(t *testing.T) {
 	t.Parallel()
-	expect(t, []string{`ping`, `-c`, `2`, `google.com`}, expectParams{
+	expect(t, []string{`ping`, `-c`, `2`, `127.0.0.1`}, expectParams{
 		ExitCode:    0,
 		StdoutMatch: regexp.MustCompile(`packets transmitted`),
 	})
@@ -39,7 +39,7 @@ func TestFailRun(t *testing.T) {
 
 func TestRetryFail(t *testing.T) {
 	t.Parallel()
-	expect(t, []string{`-wait`, `1s`, `-wait-retry`, `1s`, `-max-tries`, `3`, `ping`, `-c`, `4`, `-i`, `2`, `google.com`}, expectParams{
+	expect(t, []string{`-wait`, `1s`, `-wait-retry`, `1s`, `-max-tries`, `3`, `ping`, `-c`, `4`, `-i`, `2`, `127.0.0.1`}, expectParams{
 		ExitCode:    255,
 		StdoutMatch: regexp.MustCompile(`icmp_seq`),
 		StderrMatch: regexp.MustCompile(`(?s)waiting 1s for restart #2.+killing`),
