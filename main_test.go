@@ -33,7 +33,7 @@ func TestFailRun(t *testing.T) {
 	t.Parallel()
 	expect(t, []string{`ping`, `hahahahahaha`}, expectParams{
 		ExitCode:    2,
-		StderrMatch: regexp.MustCompile(`Name or service not known`),
+		StderrMatch: regexp.MustCompile(`Name or service not known|Temporary failure in name resolution`),
 	})
 }
 
